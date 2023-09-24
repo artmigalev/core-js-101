@@ -30,13 +30,15 @@
 // }
 // console.log(encodeToRot13('hello'));
 
+function toNumber(value, def) {
+  if (isNaN( Number(value))) {
+    return def;
+  }else {
+    return Number(value)
+  }
 
-function getCardId(value) {
-  const log = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
-  return Number(log.indexOf(value));
 }
 
-console.log(getCardId('6♣'))
-
+console.log(toNumber('8', 0 ))
 
 
