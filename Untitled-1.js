@@ -11,6 +11,8 @@
 //     if (i === i.toLowerCase()) {
 //       k = Lowlitter.indexOf(i) + 13;
 
+const { RuleTester } = require("eslint")
+
 //       if (Number(Lowlitter.length - 1) >= k) {
 //         rot.push(Lowlitter[k]);
 //       } else {
@@ -30,15 +32,16 @@
 // }
 // console.log(encodeToRot13('hello'));
 
-function toNumber(value, def) {
-  if (isNaN( Number(value))) {
-    return def;
-  }else {
-    return Number(value)
-  }
+// function doubleArray( arr ) {
 
+// }
+
+let arr =  [ 1, 2, 3, 4, 5];
+
+function getArrayOfPositives(arr) {
+  return arr.filter(e =>  typeof e === 'string' || e instanceof String)
 }
 
-console.log(toNumber('8', 0 ))
+console.log(getArrayOfPositives(arr))
 
 
