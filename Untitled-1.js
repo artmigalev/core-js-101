@@ -11,7 +11,6 @@
 //     if (i === i.toLowerCase()) {
 //       k = Lowlitter.indexOf(i) + 13;
 
-const { RuleTester } = require("eslint")
 
 //       if (Number(Lowlitter.length - 1) >= k) {
 //         rot.push(Lowlitter[k]);
@@ -35,13 +34,11 @@ const { RuleTester } = require("eslint")
 // function doubleArray( arr ) {
 
 // }
+let arr = [ 0, 1, 2, 3, 4, 5 ];
+let n = 2;
 
-let arr =  [ 1, 2, 3, 4, 5];
 
-function getArrayOfPositives(arr) {
-  return arr.filter(e =>  typeof e === 'string' || e instanceof String)
+function toArrayOfSquares(arr) {
+  return arr.map(e => Math.pow(e,2))
 }
-
-console.log(getArrayOfPositives(arr))
-
-
+console.log(toArrayOfSquares(arr))
