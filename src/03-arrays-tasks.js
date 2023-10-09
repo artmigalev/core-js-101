@@ -426,8 +426,14 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  let i = 0;
+  const arr = [...Array(n)].map(() => Array(n).fill(0));
+  return arr.map((elem) => {
+    elem.splice(i, 1, 1);
+    i += 1;
+    return elem;
+  });
 }
 
 /**
@@ -509,13 +515,12 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], (x) => x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.map(childrenSelector).flat();
 }
 
 /**
- * Returns an element from the multidimensional array by the specified indexes.
- *
+ Expected to return a value at the end of function *
  * @param {array} arr
  * @param {array} indexes
  * @return {any} element from array
@@ -547,8 +552,24 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const len = arr.length;
+  let midle = arr.reduce((a, b) => (a + b)) / len;
+  const result = [];
+  if (len <= 3) {
+    return arr.reverse();
+  } if (len % 2 === 0) {
+    // console.log(midle)
+    result.push(...arr.slice(midle, len));
+    result.push(...arr.slice(0, midle));
+    return result;
+  } if (!len % 2 === 0) {
+    result.push(...arr.slice(midle));
+    result.push(arr[midle -= 1]);
+    result.push(...arr.slice(0, midle));
+    return result;
+  }
+  return result;
 }
 
 module.exports = {

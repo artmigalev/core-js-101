@@ -1,44 +1,12 @@
-// const Uplitte = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-// const Lowlitter = 'abcdefghijklmnopqrstuvwxyz'.split('');
-// function encodeToRot13(str) {
-//   const rot = [];
-//   let k;
-//   for (const i of str) {
-//     if (i.startsWith(' ') || i.startsWith('!') || i.startsWith('?') || i.startsWith('.') || i.startsWith(',')) {
-//       rot.push(i);
-//       continue;
-//     }
-//     if (i === i.toLowerCase()) {
-//       k = Lowlitter.indexOf(i) + 13;
+function getIdentityMatrix(n) {
+  let i = 0;
+  let arr =[...Array(n)].map(() => {return Array(n).fill(0);});
+  return arr.map((elem) => {
+    elem.splice(i,1,1)
+    i+=1
+    return elem
+  })
 
-
-//       if (Number(Lowlitter.length - 1) >= k) {
-//         rot.push(Lowlitter[k]);
-//       } else {
-//         rot.push(Lowlitter[k - Number(Lowlitter.length - 1) - 1]);
-//       }
-//     } else if (i === i.toUpperCase()) {
-//       k = Uplitte.indexOf(i) + 13;
-
-//       if (Number(Uplitte.length - 1) >= k) {
-//         rot.push(Uplitte[k]);
-//       } else {
-//         rot.push(Uplitte[k - Number(Uplitte.length - 1) - 1]);
-//       }
-//     }
-//   }
-//   return rot.join('');
-// }
-// console.log(encodeToRot13('hello'));
-
-// function doubleArray( arr ) {
-
-// }
-let arr = [ 0, 1, 2, 3, 4, 5 ];
-let n = 2;
-
-
-function toArrayOfSquares(arr) {
-  return arr.map(e => Math.pow(e,2))
 }
-console.log(toArrayOfSquares(arr))
+console.log(getIdentityMatrix(5))
+
