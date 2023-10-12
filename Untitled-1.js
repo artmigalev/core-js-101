@@ -1,11 +1,14 @@
-function generateOdds(len) {
-  var n = -1;
-  const arr = Array(len).fill(1);
-  return arr.map(() => {
-
-    return n += 2; });
+function getFizzBuzz(num) {
+  if ( num%3===0 && num%5===0){
+    return 'FizzBazz';
+  }else if(num%3===0){
+    return 'Fizz';
+  }else if(num%5===0){
+    return 'Buzz'
+  }else {
+    return num;
+  }
 }
 
-console.log(generateOdds(1))
 
-
+console.log(getFizzBuzz(2))
