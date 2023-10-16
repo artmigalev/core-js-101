@@ -1,14 +1,10 @@
-function getFizzBuzz(num) {
-  if ( num%3===0 && num%5===0){
-    return 'FizzBazz';
-  }else if(num%3===0){
-    return 'Fizz';
-  }else if(num%5===0){
-    return 'Buzz'
-  }else {
-    return num;
+function getSumBetweenNumbers(n1, n2) {
+  let n3 = n2-n1;
+  let result=n1;
+  for( let i=1; i<n3+1; i++){
+    result += (n1 + i)
   }
+  return result;
 }
 
-
-console.log(getFizzBuzz(2))
+console.log(getSumBetweenNumbers(5,10))
