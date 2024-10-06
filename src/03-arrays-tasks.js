@@ -101,9 +101,10 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
-}
+// function removeFalsyValues(/* */) {
+//   throw new Error();
+
+// }
 
 /**
  * Returns the array of uppercase strings from the specified array
@@ -559,18 +560,20 @@ function getElementByIndexes(/* arr, indexes */) {
  */
 function swapHeadAndTail(arr) {
   const len = arr.length;
-  let midle = arr.reduce((a, b) => (a + b)) / len;
+  let midle = arr.reduce((a, b) => a + b) / len;
   const result = [];
   if (len <= 3) {
     return arr.reverse();
-  } if (len % 2 === 0) {
+  }
+  if (len % 2 === 0) {
     // console.log(midle)
     result.push(...arr.slice(midle, len));
     result.push(...arr.slice(0, midle));
     return result;
-  } if (!len % 2 === 0) {
+  }
+  if (!len % 2 === 0) {
     result.push(...arr.slice(midle));
-    result.push(arr[midle -= 1]);
+    result.push(arr[(midle -= 1)]);
     result.push(...arr.slice(0, midle));
     return result;
   }
@@ -583,7 +586,7 @@ module.exports = {
   doubleArray,
   getArrayOfPositives,
   getArrayOfStrings,
-  removeFalsyValues,
+  // removeFalsyValues,
   getUpperCaseStrings,
   getStringsLength,
   insertItem,

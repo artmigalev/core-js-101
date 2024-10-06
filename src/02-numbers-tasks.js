@@ -49,15 +49,9 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
-
-  // if (value1 === Number.MAX_VALUE || value2 === Number.MAX_VALUE) {
-  //   return Number.MAX_VALUE + Number.MAX_VALUE / 2;
-  // }
-  // return (value1 + value2) / arguments.length;
+function getAverage(value1, value2) {
+  return (value1 + value2) / 2;
 }
-
 /**
  * Returns a distance between two points by cartesian coordinates.
  *
@@ -161,7 +155,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  return Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
+  return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
 /**
