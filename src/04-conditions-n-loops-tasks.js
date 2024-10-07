@@ -266,18 +266,36 @@ function reverseInteger(num) {
  * @return {boolean}
  *
  * @example:
- *   79927398713      => true
- *   4012888888881881 => true
+ *   79927398713      => true           3    1 7 8 9 3 7 2 9 9 7
+ *   4012888888881881 => true                2 1 2 1 2 1 2 1 2 1
+ *                                           2 7 16 9 6 7 4 9 18 7
  *   5123456789012346 => true
  *   378282246310005  => true
  *   371449635398431  => true
  *
- *   4571234567890111 => false
- *   5436468789016589 => false
- *   4916123456789012 => false
+ *   4571234567890111 => false              1    1  1  0  9  8  7  6  5  4  3  2  1  7  5  4
+ *   5436468789016589 => false                   2  1  2  1  2  1  2  1  2  1  2  1  2  1  2 *
+ *   4916123456789012 => false                   2  1  0  9  16  7 12 5 8   3  4  1  14 5  8 =
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  const controlNum = Number(
+    ccn.toString().slice(ccn.toString().length - 1, ccn.toString().length),
+  );
+  let second = true;
+  const digits = ccn.toString().split('');
+  let sum = 0;
+  for (let ind = digits.length - 2; ind >= 0; ind -= 1) {
+    let digit = Number(digits[ind]);
+    if (second) {
+      digit *= 2;
+      if (digit > 9) {
+        digit = Math.trunc(digit / 10) + (digit % 10);
+      }
+    }
+    sum += digit;
+    second = !second;
+  }
+  return (10 - (sum % 10)) % 10 === controlNum;
 }
 
 /**
