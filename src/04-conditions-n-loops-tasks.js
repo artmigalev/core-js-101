@@ -163,8 +163,8 @@ function doRectanglesOverlap(rect1, rect2) {
  */
 function isInsideCircle(circle, point) {
   return (
-    (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2 <
-    circle.radius ** 2
+    (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2
+    < circle.radius ** 2
   );
 }
 
@@ -279,7 +279,7 @@ function reverseInteger(num) {
  */
 function isCreditCardNumber(ccn) {
   const controlNum = Number(
-    ccn.toString().slice(ccn.toString().length - 1, ccn.toString().length)
+    ccn.toString().slice(ccn.toString().length - 1, ccn.toString().length),
   );
   let second = true;
   const digits = ccn.toString().split('');
