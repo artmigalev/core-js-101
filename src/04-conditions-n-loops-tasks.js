@@ -179,10 +179,12 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  return str.split('').find((e, i) => {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) return e;
+    return null;
+  });
 }
-
 /**
  * Returns the string representation of math interval,
  * specified by two points and include / exclude flags.
@@ -205,8 +207,21 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  const boll = {
+    start: {
+      true: '[',
+      false: '(',
+    },
+    end: {
+      true: ']',
+      false: ')',
+    },
+  };
+  if (a < b) {
+    return `${boll.start[isStartIncluded]}${a}, ${b}${boll.end[isEndIncluded]}`;
+  }
+  return `${boll.start[isStartIncluded]}${b}, ${a}${boll.end[isEndIncluded]}`;
 }
 
 /**
