@@ -1,19 +1,4 @@
-function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  const boll = {
-    start: {
-      true: '[',
-      false: '(',
-    },
-    end: {
-      true: ']',
-      false: ')',
-    },
-  };
-  if (a < b) {
-    return `${boll.start[isStartIncluded]}${a}, ${b}${boll.end[isEndIncluded]}`;
-  } else {
-    return `${boll.start[isStartIncluded]}${b}, ${a}${boll.end[isEndIncluded]}`;
-  }
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
-
-getIntervalString(0, 1, false, true);
+reverseString('The quick brown fox jumps over the lazy dog');
