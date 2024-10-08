@@ -339,10 +339,34 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
-}
+function isBracketsBalanced(str) {
+  const stack = [];
+  const arrayBrackets = Array.from(str.toString());
+  for (let i = 0; i < arrayBrackets.length; i += 1) {
+    const chair = arrayBrackets[i];
+    if (stack.length === 0) {
+      if (chair === '}' || chair === ')' || chair === ']' || chair === '>') {
+        return false;
+      }
+      stack.push(chair);
+    } else {
+      const lastBracket = stack[stack.length - 1];
 
+      const combine = lastBracket + chair;
+      if (
+        combine === '[]'
+        || combine === '()'
+        || combine === '{}'
+        || combine === '<>'
+      ) {
+        stack.pop();
+      } else {
+        stack.push(chair);
+      }
+    }
+  }
+  return stack.length === 0;
+}
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n <= 10)
  * representation of specified number.
