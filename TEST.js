@@ -1,7 +1,11 @@
-function getDigitalRoot(num) {
-  const numArray = Array.from(String(num), Number);
-  const sum = numArray.reduce((acc, curr) => acc + curr, 0);
-  return sum <= 9 ? sum : getDigitalRoot(sum);
+function toCsvText(arr) {
+  return arr.flat().join(',')
 }
-
-getDigitalRoot(12345);
+console.log(
+  toCsvText([
+    [0, 1, 2, 3, 4],
+    [10, 11, 12, 13, 14],
+    [20, 21, 22, 23, 24],
+    [30, 31, 32, 33, 34],
+  ])
+);
