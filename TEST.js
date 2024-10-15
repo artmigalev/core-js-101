@@ -1,11 +1,6 @@
-function toCsvText(arr) {
-  return arr.flat().join(',')
+function getMovingSum(arr) {
+  return Array.from(arr, (el , index,arr) => {
+
+  })
 }
-console.log(
-  toCsvText([
-    [0, 1, 2, 3, 4],
-    [10, 11, 12, 13, 14],
-    [20, 21, 22, 23, 24],
-    [30, 31, 32, 33, 34],
-  ])
-);
+console.log(getMovingSum([10, -10, 10, -10, 10]));

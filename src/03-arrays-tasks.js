@@ -101,10 +101,9 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-// function removeFalsyValues(/* */) {
-//   throw new Error();
-
-// }
+function removeFalsyValues(arr) {
+  return arr.filter(Boolean);
+}
 
 /**
  * Returns the array of uppercase strings from the specified array
@@ -231,8 +230,8 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  return Array.from(arr, (el, i) => el + i);
 }
 
 /**
@@ -586,7 +585,7 @@ module.exports = {
   doubleArray,
   getArrayOfPositives,
   getArrayOfStrings,
-  // removeFalsyValues,
+  removeFalsyValues,
   getUpperCaseStrings,
   getStringsLength,
   insertItem,
