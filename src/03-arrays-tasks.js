@@ -268,9 +268,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-  return arr
-    .map((el, ind) => Array.from({ length: ind + 1 }).fill(el))
-    .flat();
+  return arr.map((el, ind) => Array.from({ length: ind + 1 }).fill(el)).flat();
 }
 
 /**
@@ -286,8 +284,21 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  if (arr.length === 0) return [];
+  if (arr.length <= 3) return arr.sort((a, b) => a - b).reverse();
+  return arr
+    .sort((a, b) => {
+      if (a < b) {
+        return -1;
+      } if (a > b) {
+        return 1;
+      }
+
+      return 0;
+    })
+    .reverse()
+    .slice(0, 3);
 }
 
 /**
