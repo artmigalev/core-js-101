@@ -49,8 +49,8 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+function getAverage(/* value1, value2 */) {
+  throw new Error('Not implemented');
 }
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -175,10 +175,8 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
-
-  // return num.toFixed(pow);
+function roundToPowerOfTen(num, pow) {
+  return Math.round(num / 10 ** pow) * 10 ** pow;
 }
 
 /**
